@@ -1,9 +1,33 @@
-├── _layouts/
-│   └── default.html   <-- Your site's master layout (header, footer, nav)
-├── assets/
-│   ├── css/
-│   │   └── style.css  <-- Your custom styling (robotics/tech aesthetic)
-│   └── images/        <-- Your robot photos and club logo
-├── _config.yml        <-- Site settings
-└── index.md           <-- Homepage content
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
 
+    <header>
+        <nav>
+            <div class="logo">🤖 {{ site.title }}</div>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Our Robots</a></li>
+                <li><a href="#">Achievements</a></li>
+                <li><a href="#">Join Team</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- This injected tag pulls content from your index.md file -->
+        {{ content }}
+    </main>
+
+    <footer>
+        <p>&copy; {{ site.time | date: '%Y' }} Robocon Club. Engineered with passion.</p>
+    </footer>
+
+</body>
+</html>
